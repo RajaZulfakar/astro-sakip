@@ -1,5 +1,26 @@
 ---
+const pageTitle = "About SAKIP";
 
+const identity = {
+  firstName: "Raja M. Zulfakar",
+  country: "Indonesia",
+  occupation: "Web Developers",
+  hobbies: ["Programing", "UI/UIX", "Running", "Walking"],
+};
+
+const skills = [
+  "HTML",
+  "CSS",
+  "Javascript",
+  "React",
+  "NextJS",
+  "Tailwindcss",
+  "Astro",
+];
+
+const happy = true;
+const finished = false;
+const goal = 3;
 ---
 
 <html lang="en">
@@ -8,18 +29,52 @@
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <meta name="viewport" content="width=device-width" />
     <meta name="generator" content={Astro.generator} />
-    <title>About - Astro SAKIP Kabupaten Bintan</title>
+    <title>{pageTitle}</title>
   </head>
   <body>
     <a href="/">Home</a>
     <a href="/about/">About</a>
     <a href="/blog/">Blog</a>
-    <h1>About - Astro SAKIP</h1>
+
+    <h1>{pageTitle}</h1>
+    <h2>... and my new Astro site!</h2>
+
+    <p>Current Status:</p>
+    {happy && "I'm Happy"}
+    {finished && "I've finished this tutorial!"}
+    {goal === 3 ? "My goal is to finished in 3 days" : "My goal is not 3 day"}
+
+    <p>Here is something about me:</p>
+    <ul>
+      <li>
+        My name is {identity.firstName}
+      </li>
+      <li>
+        I live in {identity.country} and I'm a {identity.occupation}
+      </li>
+      {
+        identity.hobbies.length >= 2 && (
+          <li>
+            My two top hobbies are {identity.hobbies[0]} and{" "}
+            {identity.hobbies[1]}
+          </li>
+        )
+      }
+    </ul>
     <p>
-      Lorem ipsum dolor sit amet consectetur, adipisicing elit. Unde, nesciunt
-      illum eos tenetur expedita excepturi quasi nemo dolore, ab placeat
-      officiis cum commodi tempora numquam aliquid dolorum, sapiente similique
-      itaque?
+      My skills are:
+      <ul>
+        {skills.map((skill) => <li>{skill}</li>)}
+      </ul>
+    </p>
+    <p>
+      I am working through Astro's introductory tutorial. This is the second
+      page on my website, and it's the first one I built myself!
+    </p>
+
+    <p>
+      This site will update as I complete more of the tutorial, so keep checking
+      back and see how my journey is going!
     </p>
   </body>
 </html>
